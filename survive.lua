@@ -46,7 +46,7 @@ coroutine.wrap(loadoo)()
 wait(3.5)
 local UILib = loadstring(game:HttpGet('https://raw.githubusercontent.com/inceldom/kinx/main/ui'))()
 
-local win = UILib:Window("IGUY V2",Color3.fromRGB(44, 120, 224), Enum.KeyCode.q)
+local win = UILib:Window("IGUY V2",Color3.fromRGB(44, 120, 224), Enum.KeyCode.Q)
 
 
 
