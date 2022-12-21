@@ -1,6 +1,52 @@
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local ImageLabel = Instance.new("ImageLabel")
+
+-- Properties
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.new(1, 1, 1)
+Frame.BorderSizePixel = 2
+Frame.Position = UDim2.new(0.218779191, 0, 0.317786127, 0)
+Frame.Size = UDim2.new(0, 457, 0, 214)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel.BorderSizePixel = 2
+TextLabel.Position = UDim2.new(0.0634573326, 0, 0.0467289723, 0)
+TextLabel.Size = UDim2.new(0, 398, 0, 58)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Thank You For Using"
+TextLabel.TextColor3 = Color3.new(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14
+TextLabel.TextWrapped = true
+
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0, 0, 0.350467294, 0)
+ImageLabel.Size = UDim2.new(0, 457, 0, 139)
+ImageLabel.Image = "rbxassetid://11875342159"
+
+-- Scripts
+
+local function loadoo() 
+	local script = Instance.new('LocalScript', Frame)
+
+	wait(3.5)
+	script.Parent.Parent.Enabled = false
+end
+coroutine.wrap(loadoo)()
+
+wait(3.5)
 local UILib = loadstring(game:HttpGet('https://raw.githubusercontent.com/inceldom/kinx/main/ui'))()
 
-local win = UILib:Window("IGUY V2",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
+local win = UILib:Window("IGUY V2",Color3.fromRGB(44, 120, 224), Enum.KeyCode.q)
 
 
 
@@ -260,6 +306,6 @@ local Settings = win:Tab("Settings")
 Settings:Label("UI Toggle Key:  q")
 
 Settings:Button("Copy Discord Invite", function()
-    setclipboard("")
+    setclipboard("https://discord.gg/NXMbG64nBU")
     UILib:Notification("Notification", "Copied!", "Okay")
 end)
