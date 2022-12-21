@@ -55,7 +55,7 @@ local MainSection = win:Tab("Main")
 local client = game.Players.LocalPlayer
 local char = client.Character
 
-local noclip = false
+local noclip = true
 
 MainSection:Slider("WalkSpeed",0,1000,16, function(t)
 	game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = t
@@ -66,7 +66,7 @@ MainSection:Slider("Jump Power",0,1000,50, function(t)
 end)
 
 MainSection:Toggle("Noclip",false, function(t)
-    noclip = t
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end)
 
 
@@ -81,13 +81,13 @@ MainSection:Slider("Gravity",0,500,196, function(t)
 end)
 
 MainSection:Toggle("Autopick Gun",false, function(t)
-	if t then
+      if t then
 		sheriff.Character.Humanoid.Died:Connect(function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = sheriff.Character.HumanoidRootPart.CFrame end)
 	end
 end)
 
 
-MainSection:Button("Find Murder", function()
+MainSection:Button("Find Murderer", function()
     for i,v in pairs(game:GetService("Players"):GetPlayers()) do
         if v.Character:FindFirstChild("Knife") or v.Backpack:FindFirstChild("Knife") then
             UILib:Notification("Notification", v.Name.."Is Murder", "Okay")    
@@ -95,15 +95,15 @@ MainSection:Button("Find Murder", function()
     end
 end)
 
-MainSection:Button("Find Murder", function()
+MainSection:Button("Find Sheriff (Currently Down?)", function()
     for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-        if v.Character:FindFirstChild("Revolver") or v.Backpack:FindFirstChild("Revolver") then
+        if v.Character:FindFirstChild("Revolver") or v.Backpack:FindFirstChild("Revolver") or v.Character:FindFirstChild("Gun") or v.Backpack:FindFirstChild("Gun") then
             UILib:Notification("Notification", v.Name.."Is Sheriff", "Okay")    
         end
     end
 end)
 
-MainSection:Button("Tp Tp Murder", function()
+MainSection:Button("Tp To Murderer", function()
     for i,v in pairs(game:GetService("Players"):GetPlayers()) do
 		if v.Character:FindFirstChild("Knife") or v.Backpack:FindFirstChild("Knife") then
 			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame * CFrame.new(0, 3, 0)
@@ -111,7 +111,7 @@ MainSection:Button("Tp Tp Murder", function()
 	end
 end)
 
-MainSection:Button("Tp Tp Sheriff", function()
+MainSection:Button("Tp To Sheriff", function()
 	for i,v in pairs(game:GetService("Players"):GetPlayers()) do
 		if v.Character:FindFirstChild("Revolver") or v.Backpack:FindFirstChild("Revolver") or v.Character:FindFirstChild("Gun") or v.Backpack:FindFirstChild("Gun") then
 			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame * CFrame.new(0, 3, 0)
@@ -123,13 +123,13 @@ end)
 local EmotesSection = win:Tab("Emotes")
 
 EmotesSection:Button("Sit", function()
-    local string_1 = "sit";
+    local string_1 = "Sit";
     local Target = game:GetService("ReplicatedStorage").PlayEmote;
     Target:Fire(string_1);
 end)
 
 EmotesSection:Button("Zombie", function()
-    local string_1 = "zombie";
+    local string_1 = "Zombie";
     local Target = game:GetService("ReplicatedStorage").PlayEmote;
     Target:Fire(string_1);
 end)
@@ -141,25 +141,25 @@ EmotesSection:Button("Spray", function()
 end)
 
 EmotesSection:Button("Dab", function()
-    local string_1 = "dab";
+    local string_1 = "Dab";
     local Target = game:GetService("ReplicatedStorage").PlayEmote;
     Target:Fire(string_1);
 end)
 
 EmotesSection:Button("Ninja", function()
-    local string_1 = "ninja";
+    local string_1 = "Ninja Rest";
     local Target = game:GetService("ReplicatedStorage").PlayEmote;
     Target:Fire(string_1);
 end)
 
 EmotesSection:Button("Floss", function()
-    local string_1 = "floss";
+    local string_1 = "Floss";
     local Target = game:GetService("ReplicatedStorage").PlayEmote;
     Target:Fire(string_1);
 end)
 
 EmotesSection:Button("Zen", function()
-    local string_1 = "zen";
+    local string_1 = "Zen";
     local Target = game:GetService("ReplicatedStorage").PlayEmote;
     Target:Fire(string_1);
 end)
